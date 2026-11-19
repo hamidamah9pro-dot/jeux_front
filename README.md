@@ -7,3 +7,4 @@ Next.js (App Router) + TypeScript + Tailwind CSS.
     npm run dev
 
 Variable d'environnement : `NEXT_PUBLIC_API_URL` (voir `.env.local`).
+"# jeux_front" 
