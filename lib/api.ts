@@ -50,6 +50,12 @@ export const api = {
   startGame: (room_code: string, user_id: number | string) =>
     request("/start_game.php", { room_code, user_id }),
 
+    nextRound: (room_code: string, user_id: number | string) =>
+    request("/next_round.php", { room_code, user_id }),
+
+  endGame: (room_code: string, user_id: number | string) =>
+    request("/end_game.php", { room_code, user_id }),
+
   submitSecret: (p: { room_code: string; author_id: number | string; target_id: number | string; content: string }) =>
     request("/submit_secret.php", p),
 

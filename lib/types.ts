@@ -5,7 +5,7 @@ export interface Player {
   has_submitted?: boolean | number;
 }
 
-export type GameStatus = "waiting" | "submitting" | "playing" | "finished";
+export type GameStatus = "waiting" | "submitting" | "playing" | "round_over" | "finished";
 
 export interface CurrentSecret {
   id: number | string;
@@ -13,8 +13,16 @@ export interface CurrentSecret {
   target: Player;
 }
 
+export interface Score extends Player {
+  found: number;
+  fooled: number;
+  exposed: number;
+  points: number;
+}
+
 export interface ResolvedSecret {
   id: number | string;
+  round?: number;
   content: string;
   author: Player;
   target: Player;
@@ -29,6 +37,9 @@ export interface GameState {
   secrets_submitted_count: number;
   current_secret?: CurrentSecret | null;
   resolved_secrets: ResolvedSecret[];
+  round?: number;
+  scores?: Score[];
+  all_resolved_secrets?: ResolvedSecret[];
 }
 
 export const sameId = (a?: number | string | null, b?: number | string | null) =>
